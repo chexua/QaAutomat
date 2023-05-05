@@ -5,10 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Dz4x1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -32,20 +33,22 @@ public class Dz4x1 {
 
         driver.navigate().to("https://uhomki.com.ua/");
         Set<String> setFirst = driver.getWindowHandles();
-        ((JavascriptExecutor)driver).executeScript("window.open()");
+        ((JavascriptExecutor) driver).executeScript("window.open()");
         Set<String> setSecond = driver.getWindowHandles();
         setSecond.removeAll(setFirst);
         String finalDesc = setSecond.iterator().next();
         driver.switchTo().window(finalDesc);
         driver.get("https://zoo.kiev.ua/");
-        ((JavascriptExecutor)driver).executeScript("window.open()");
+        Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.open()");
         Set<String> setThird = driver.getWindowHandles();
         setThird.removeAll(setFirst);
         setThird.removeAll(setSecond);
         String finalDesc1 = setThird.iterator().next();
         driver.switchTo().window(finalDesc1);
         driver.get("https://www.w3schools.com/");
-        ((JavascriptExecutor)driver).executeScript("window.open()");
+        Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.open()");
         Set<String> setFour = driver.getWindowHandles();
         setFour.removeAll(setFirst);
         setFour.removeAll(setSecond);
@@ -53,7 +56,8 @@ public class Dz4x1 {
         String finalDesc2 = setFour.iterator().next();
         driver.switchTo().window(finalDesc2);
         driver.get("https://taxi838.ua/ru/dnepr/");
-        ((JavascriptExecutor)driver).executeScript("window.open()");
+        Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.open()");
         Set<String> setFive = driver.getWindowHandles();
         setFive.removeAll(setFirst);
         setFive.removeAll(setSecond);
@@ -62,9 +66,27 @@ public class Dz4x1 {
         String finalDesc3 = setFive.iterator().next();
         driver.switchTo().window(finalDesc3);
         driver.get("https://klopotenko.com/");
+        Thread.sleep(3000);
+
+        Set<String> count = driver.getWindowHandles();
+        Iterator<String> i = count.iterator();
+
+        for (int k = 0; k < count.size(); k++) {
+            i.hasNext();
+            String childWindow = i.next();
+            driver.switchTo().window(childWindow);
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(driver.getTitle());
+            {
+                if (driver.getTitle().toLowerCase().contains("зоопарк")) {
+                    driver.close();
+                }
+            }
+        }
         driver.quit();
+    }
 
 
 
     }
-}
+
