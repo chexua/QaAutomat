@@ -31,12 +31,12 @@ public class Task5 {
 
         driver.get("http://only-testing-blog.blogspot.com/2014/01/textbox.html?");
 
-        Dz7 ExempClass = new Dz7(driver);
+        Dz7 ModCl = new Dz7(driver);
         Actions actions1 = new Actions(driver);
         driver.get("http://only-testing-blog.blogspot.com/2014/01/textbox.html?");
         WebElement alert = driver.findElement(By.xpath("//input[@onclick='myFunction1()']"));
         actions1.moveToElement(alert).click().perform();
-        ExempClass.waitForAlertAndSwitchToIt();
+        ModCl.waitForAlertAndSwitchToIt();
         Alert alerts = driver.switchTo().alert();
         System.out.println(alerts.getText());
         assertEquals(alerts.getText(),"Hi.. This is alert message!");
