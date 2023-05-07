@@ -73,7 +73,7 @@ public class Dz6 {
         driver.findElement(By.xpath("//input[@id='ConfirmEmailAddress']")).sendKeys("mail@mail.ua");
         driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("qa24ITstep");
         WebElement confirmPass = driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
-        confirmPass.sendKeys("qa24");
+        confirmPass.sendKeys("itstepqa24");
         confirmPass.sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("//span[@for='ConfirmPassword']"));
         System.out.println(driver.findElement(By.xpath("//span[@for='ConfirmPassword']")).getText());
