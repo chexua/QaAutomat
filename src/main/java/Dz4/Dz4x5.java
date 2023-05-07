@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.openqa.selenium.Keys.ENTER;
 
-public class Dz5x5 {
+public class Dz4x5 {
     //5)
     //Написать программу, которая повторит действия на видео "Задание 5.mp4".
     public static void main(String[] args) throws InterruptedException {
