@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<suite name="AllTests Suite" parallel ="tests" thread-count="2">
+    <test name="Suite1">
+        <classes>
+            <class name="parallelismus.ParallelClass1"/>
+
+
+        </classes>
+    </test>
+    <test name="Suite2">
+        <classes>
+            <class name="parallelismus.ParallelClass2"/>
+
+        </classes>
+    </test>
+
+</suite>

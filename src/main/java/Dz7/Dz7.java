@@ -75,6 +75,9 @@ public class Dz7 {
     public void waitInVisibilityElement(WebElement element) {
         waitForFunction(ExpectedConditions.invisibilityOf(element), EXPLICITY_WAIT);
     }
+    public WebElement waitVisibilityOfElementLocatedReturn (By by){
+        return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
 
     public void waitInVisibilityElement(By by) {
         waitForFunction(ExpectedConditions.invisibilityOf(driver.findElement(by)), EXPLICITY_WAIT);
